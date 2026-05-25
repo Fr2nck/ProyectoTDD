@@ -17,8 +17,8 @@ class CreateEventTest extends TestCase
         $eventData = [
             'name' => 'Conferencia de Devs',
             'feature' => 'imagen.jpg',
-            'date' => Carbon::now()->format('Y-m-d'), // O la fecha estática que hayas puesto
-            'time' => '10:00:00',
+            'date' => Carbon::now(),
+            'time' => '12:00:00',
             'location' => 'Santiago Bernabeu'
         ];
 
