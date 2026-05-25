@@ -6,12 +6,13 @@ use Illuminate\Http\Request;
 use App\Models\Event;
 use App\Http\Requests\StoreEventRequest;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 
 class EventController extends Controller
 {
 
 
-    public function index()
+    public function index(): View
     {
         $events = Event::all();
         return view('events.index',['events' => $events]);
@@ -24,5 +25,12 @@ class EventController extends Controller
         event:: create($evenData);
 
         return redirect()-> route('events.index');
+    }
+
+    public function update(Request $request, Event $event)
+    {
+        $event->update($request->all());
+
+        return response()->json($event, 200); 
     }
 }
